@@ -41,16 +41,16 @@ public class CollectionTestSuite {
 
         List<Integer> numbersList = new ArrayList<Integer>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             numbersList.add(i);
         }
 
         List<Integer> numbersList2 = new ArrayList<Integer>();
-        for (int i = 0; i < 10; i++) {
-            if(i % 2 == 0) {
-                numbersList2.add(i);
-            }
-        }
+
+            numbersList2.add(2);
+            numbersList2.add(4);
+            numbersList2.add(6);
+            numbersList2.add(8);
 
         //given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
