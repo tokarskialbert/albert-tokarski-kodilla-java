@@ -1,7 +1,5 @@
 package com.kodilla.testing.shape;
 
-import com.kodilla.testing.Shape;
-
 import java.util.Objects;
 
 public class Square implements Shape {
