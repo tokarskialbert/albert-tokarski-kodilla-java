@@ -39,7 +39,7 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("2.0 0.0 0.0 0.0 0.0 0.0", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=0.0, numberOfTheForumComments=0.0, averageNumberOfPostsPerUser=0.0, averageNumberOfCommentsPerUser=0.0, averageNumberOfCommentsPerPost=0.0", myResult);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("2.0 1000.0 2000.0 500.0 1000.0 2.0", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=1000.0, numberOfTheForumComments=2000.0, averageNumberOfPostsPerUser=500.0, averageNumberOfCommentsPerUser=1000.0, averageNumberOfCommentsPerPost=2.0", myResult);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("2.0 20.0 0.0 10.0 0.0 0.0", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=20.0, numberOfTheForumComments=0.0, averageNumberOfPostsPerUser=10.0, averageNumberOfCommentsPerUser=0.0, averageNumberOfCommentsPerPost=0.0", myResult);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("2.0 20.0 10.0 10.0 5.0 0.5", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=20.0, numberOfTheForumComments=10.0, averageNumberOfPostsPerUser=10.0, averageNumberOfCommentsPerUser=5.0, averageNumberOfCommentsPerPost=0.5", myResult);
     }
 
     @Test
@@ -127,7 +127,7 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("2.0 10.0 20.0 5.0 10.0 2.0", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=10.0, numberOfTheForumComments=20.0, averageNumberOfPostsPerUser=5.0, averageNumberOfCommentsPerUser=10.0, averageNumberOfCommentsPerPost=2.0", myResult);
     }
 
     @Test
@@ -147,7 +147,7 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("0.0 0.0 0.0 0.0 0.0 0.0", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=0.0, numberOfTheForumPosts=0.0, numberOfTheForumComments=0.0, averageNumberOfPostsPerUser=0.0, averageNumberOfCommentsPerUser=0.0, averageNumberOfCommentsPerPost=0.0", myResult);
     }
 
     @Test
@@ -170,6 +170,6 @@ public class ForumStatisticsTestSuite {
         String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("1000.0 1000.0 2000.0 1.0 2.0 2.0", myResult);
+        Assert.assertEquals("numberOfTheForumUsers=1000.0, numberOfTheForumPosts=1000.0, numberOfTheForumComments=2000.0, averageNumberOfPostsPerUser=1.0, averageNumberOfCommentsPerUser=2.0, averageNumberOfCommentsPerPost=2.0", myResult);
     }
 }

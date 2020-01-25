@@ -8,7 +8,6 @@ public class ForumStatistics {
     private double averageNumberOfPostsPerUser;
     private double averageNumberOfCommentsPerUser;
     private double averageNumberOfCommentsPerPost;
-    private String result;
 
 
     public String calculateAdvStatistics(Statistics statistics) {
@@ -55,14 +54,16 @@ public class ForumStatistics {
             this.averageNumberOfCommentsPerPost = 0;
         }
 
-        this.result = this.numberOfTheForumUsers + " "
-                + this.numberOfTheForumPosts + " "
-                + this.numberOfTheForumComments + " "
-                + this.averageNumberOfPostsPerUser + " "
-                + this.averageNumberOfCommentsPerUser + " "
-                + this.averageNumberOfCommentsPerPost;
+        StatisticsData statisticsData = new StatisticsData( this.numberOfTheForumUsers,
+                                                            this.numberOfTheForumPosts,
+                                                            this.numberOfTheForumComments,
+                                                            this.averageNumberOfPostsPerUser,
+                                                            this.averageNumberOfCommentsPerUser,
+                                                            this.averageNumberOfCommentsPerPost);
 
-        return result;
+
+
+        return statisticsData.toString();
     }
 
    void showStatistics() {
@@ -76,3 +77,9 @@ public class ForumStatistics {
        System.out.println("  Average number of the comments per post: " + this.averageNumberOfCommentsPerPost);
    }
 }
+
+/*
+Zrób sobie klasę immutable StatisticsData, która będzie przechowywała wszystkie wyliczone informacje.
+ Tak by public String calculateAdvStatistics nie zwracał String tylko StatisticsData.
+ Będzie Ci to lepiej testować
+ */
