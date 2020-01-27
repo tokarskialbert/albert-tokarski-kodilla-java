@@ -36,10 +36,16 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(0);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=0.0, numberOfTheForumComments=0.0, averageNumberOfPostsPerUser=0.0, averageNumberOfCommentsPerUser=0.0, averageNumberOfCommentsPerPost=0.0", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 2.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 0.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 0.0);
+
     }
 
     @Test
@@ -58,10 +64,15 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(2000);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=1000.0, numberOfTheForumComments=2000.0, averageNumberOfPostsPerUser=500.0, averageNumberOfCommentsPerUser=1000.0, averageNumberOfCommentsPerPost=2.0", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 2.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 1000.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 2000.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 500.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 1000.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 2.0);
     }
 
     @Test
@@ -80,10 +91,15 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(0);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=20.0, numberOfTheForumComments=0.0, averageNumberOfPostsPerUser=10.0, averageNumberOfCommentsPerUser=0.0, averageNumberOfCommentsPerPost=0.0", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 2.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 20.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 10.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 0.0);
     }
 
     @Test
@@ -102,10 +118,15 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(10);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=20.0, numberOfTheForumComments=10.0, averageNumberOfPostsPerUser=10.0, averageNumberOfCommentsPerUser=5.0, averageNumberOfCommentsPerPost=0.5", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 2.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 20.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 10.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 10.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 5.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 0.5);
     }
 
     @Test
@@ -124,10 +145,15 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(20);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=2.0, numberOfTheForumPosts=10.0, numberOfTheForumComments=20.0, averageNumberOfPostsPerUser=5.0, averageNumberOfCommentsPerUser=10.0, averageNumberOfCommentsPerPost=2.0", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 2.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 10.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 20.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 5.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 10.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 2.0);
     }
 
     @Test
@@ -144,10 +170,15 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(20);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=0.0, numberOfTheForumPosts=0.0, numberOfTheForumComments=0.0, averageNumberOfPostsPerUser=0.0, averageNumberOfCommentsPerUser=0.0, averageNumberOfCommentsPerPost=0.0", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 0.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 0.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 0.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 0.0);
     }
 
     @Test
@@ -167,9 +198,14 @@ public class ForumStatisticsTestSuite {
         Mockito.when(statisticsMock.commentsCount()).thenReturn(2000);
 
         //when
-        String myResult = forumStatistics.calculateAdvStatistics(statisticsMock);
+        StatisticsData statisticsData = forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //then
-        Assert.assertEquals("numberOfTheForumUsers=1000.0, numberOfTheForumPosts=1000.0, numberOfTheForumComments=2000.0, averageNumberOfPostsPerUser=1.0, averageNumberOfCommentsPerUser=2.0, averageNumberOfCommentsPerPost=2.0", myResult);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumUsers() == 1000.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumPosts() == 1000.0);
+        Assert.assertTrue(statisticsData.getNumberOfTheForumComments() == 2000.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfPostsPerUser() == 1.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerUser() == 2.0);
+        Assert.assertTrue(statisticsData.getAverageNumberOfCommentsPerPost() == 2.0);
     }
 }
