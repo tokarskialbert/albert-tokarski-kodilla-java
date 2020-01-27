@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryUser {
-    String firstname;
-    String lastname;
-    String peselId;
-    List<Book> ownedBooks;
+    private final String firstname;
+    private final String lastname;
+    private final String peselId;
+    private List<Book> ownedBooks;
 
     public LibraryUser(String firstname, String lastname, String peselId) {
         this.firstname = firstname;
@@ -25,12 +25,16 @@ public class LibraryUser {
     }
 
     public String getLastname() {
+
         return lastname;
     }
 
     public String getPeselId() {
+
         return peselId;
     }
+
+
 
     @Override
     public String toString() {
