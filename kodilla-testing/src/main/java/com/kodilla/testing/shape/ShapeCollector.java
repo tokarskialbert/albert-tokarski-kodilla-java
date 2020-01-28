@@ -1,7 +1,5 @@
 package com.kodilla.testing.shape;
 
-import com.kodilla.testing.Shape;
-
 import java.util.ArrayList;
 import java.util.List;
 
