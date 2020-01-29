@@ -1,8 +1,9 @@
 package com.kodilla.stream.immutable;
 
-import com.sun.tools.javac.util.List;
+
 
 import java.util.Date;
+import java.util.List;
 
 public final class ForumUser {
     private final String username;
@@ -15,6 +16,7 @@ public final class ForumUser {
         this.realName = realName;
         this.friends = friends;
         this.birthDate = birthDate;
+
     }
 
     public String getUsername() {
