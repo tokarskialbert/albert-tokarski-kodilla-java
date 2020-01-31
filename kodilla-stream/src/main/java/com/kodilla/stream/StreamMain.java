@@ -1,23 +1,21 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.lambda.ExpressionExecutor;
+import com.kodilla.stream.forumUser.Forum;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+        Forum forum = new Forum();
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-
-        poemBeautifier.beautify("PERSON", text -> text.toLowerCase());
-        poemBeautifier.beautify("PERSON", text -> text.concat(" - HUMAN"));
-        poemBeautifier.beautify("PERSON", text -> text.replace('E','3'));
-
-
+        Map theResultMapOfForumUsers = forum.getForumUserList().stream()
+                .filter(forumUser -> forumUser.getNumberOfUserPosts() > 0)
+                .filter(forumUser -> Character.toString(forumUser.getSex()).equals("M"))
+                .filter(forumUser -> Period.between(forumUser.getBirthDate(), LocalDate.now()).getYears() > 19)
+                .collect(Collectors.toMap(forumUser -> forumUser.getUserID(), forumUser -> forumUser));
     }
 }
