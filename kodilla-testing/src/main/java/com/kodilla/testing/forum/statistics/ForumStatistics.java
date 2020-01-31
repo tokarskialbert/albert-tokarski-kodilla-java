@@ -10,7 +10,7 @@ public class ForumStatistics {
     private double averageNumberOfCommentsPerPost;
 
 
-    public String calculateAdvStatistics(Statistics statistics) {
+    public StatisticsData calculateAdvStatistics(Statistics statistics) {
 
         if(statistics.usersNames().size() != 0) {
             this.numberOfTheForumUsers = statistics.usersNames().size();
@@ -63,7 +63,7 @@ public class ForumStatistics {
 
 
 
-        return statisticsData.toString();
+        return statisticsData;
     }
 
    void showStatistics() {
