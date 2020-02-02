@@ -2,6 +2,7 @@ package com.kodilla.stream.immutable;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,8 +15,8 @@ public final class ForumUser {
     public ForumUser(String username, String realName, List<ForumUser> friends, Date birthDate) {
         this.username = username;
         this.realName = realName;
-        this.friends = friends;
-        this.birthDate = birthDate;
+        this.friends = new ArrayList<>(friends);
+        this.birthDate = new Date(birthDate.getTime());
 
     }
 
