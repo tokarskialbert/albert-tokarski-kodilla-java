@@ -24,15 +24,9 @@ public class ArrayOfNumbers implements ArrayOperations {
         IntStream.of(array)
                 .forEach(System.out::println);
 
-        OptionalDouble average = IntStream.of(array).average();
-
-        if (average.isPresent()) {
-            return average.getAsDouble();
-        }
-        else {
-
-            return -1;
-        }
+        return IntStream.of(array)
+                .average()
+                .orElse(-1.0);
     }
 }
 
