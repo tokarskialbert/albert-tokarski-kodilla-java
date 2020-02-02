@@ -10,10 +10,10 @@ public class World {
     private final Set<Continent> continentsSet;
 
     public World(Continent... continents) {
-        continentsSet = new HashSet<>();
+        this.continentsSet = new HashSet<>();
 
-        for (Continent continent1 : continents) {
-            continentsSet.add(continent1);
+        for (Continent continent : continents) {
+            this.continentsSet.add(continent);
         }
     }
 

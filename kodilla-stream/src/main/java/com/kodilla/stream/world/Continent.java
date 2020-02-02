@@ -7,13 +7,13 @@ public class Continent {
     private final String continentName;
     private final Set<Country> continentCountries;
 
-    public Continent(String continentName, Country... country) {
+    public Continent(String continentName, Country... countries) {
 
         this.continentName = continentName;
         continentCountries = new HashSet<Country>();
 
-        for (Country country1 : country) {
-            continentCountries.add(country1);
+        for (Country country : countries) {
+            continentCountries.add(country);
         }
     }
 
