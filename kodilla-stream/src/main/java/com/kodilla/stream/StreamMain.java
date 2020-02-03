@@ -1,5 +1,6 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.array.ArrayOfNumbers;
 import com.kodilla.stream.forumUser.Forum;
 
 import java.time.LocalDate;
