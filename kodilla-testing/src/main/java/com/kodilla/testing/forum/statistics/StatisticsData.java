@@ -19,6 +19,30 @@ public final class StatisticsData {
         this.averageNumberOfCommentsPerPost = averageNumberOfCommentsPerPost;
     }
 
+    public double getNumberOfTheForumUsers() {
+        return numberOfTheForumUsers;
+    }
+
+    public double getNumberOfTheForumPosts() {
+        return numberOfTheForumPosts;
+    }
+
+    public double getNumberOfTheForumComments() {
+        return numberOfTheForumComments;
+    }
+
+    public double getAverageNumberOfPostsPerUser() {
+        return averageNumberOfPostsPerUser;
+    }
+
+    public double getAverageNumberOfCommentsPerUser() {
+        return averageNumberOfCommentsPerUser;
+    }
+
+    public double getAverageNumberOfCommentsPerPost() {
+        return averageNumberOfCommentsPerPost;
+    }
+
     @Override
     public String toString() {
         return  "numberOfTheForumUsers=" + numberOfTheForumUsers +
