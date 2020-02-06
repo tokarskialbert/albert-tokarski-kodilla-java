@@ -2,15 +2,16 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public double divide(double a, double b) {
+    public double divide(double a, double b) throws ArithmeticException {
 
         try{
+
             return a / b;
 
-        } catch (ArithmeticException ex) {
+        } catch (Exception ex) {
 
-            System.out.println("Error: " + ex.getStackTrace());
-            return -1.0;
+            throw new ArithmeticException();
+
         }
     }
 
@@ -18,9 +19,13 @@ public class FirstChallenge {
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
-        double result = firstChallenge.divide(3, 0);
+        try {
 
-        System.out.println(result);
+            double result = firstChallenge.divide(3, 0);
 
+        } catch (ArithmeticException ex) {
+
+            System.out.println("Error! " + ex.getStackTrace());
+        }
     }
 }
