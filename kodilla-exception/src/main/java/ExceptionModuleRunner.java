@@ -1,17 +1,18 @@
-import com.kodilla.exception.test.ExceptionHandling;
-import com.kodilla.exception.test.SecondChallenge;
+import com.kodilla.exception.test.*;
 
 public class ExceptionModuleRunner {
 
     public static void main(String[] args) {
 
-        SecondChallenge secondChallenge = new SecondChallenge();
+        Flight flight = new Flight("Moskwa", "Katowice");
+        FlightFinder flightFinder = new FlightFinder();
 
         try {
-            secondChallenge.probablyIWillThrowException(3, 2);
 
-        } catch (ExceptionHandling ex) {
-                System.out.println("Error");
+            flightFinder.findFlight(flight);
+
+        } catch (RouteNotFoundException ex) {
+            System.out.println("Error!" + ex.getMessage());
         }
     }
 }
