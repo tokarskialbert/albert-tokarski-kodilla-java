@@ -1,26 +1,62 @@
 package com.kodilla.exception.test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FlightFinder {
 
-   public void findFlight(Flight flight) throws RouteNotFoundException {
+   public boolean findArrivalAirport(Flight flight) throws RouteNotFoundException {
 
-        Map<String, Boolean> flightMap = new HashMap<String, Boolean>(); //zrobic tu gettera?
+        Map<String, Boolean> flightMap = new HashMap<String, Boolean>();
             flightMap.put("Krakow", true);
-            flightMap.put("Wroclaw", true);
+            flightMap.put("Wroclaw", false);
             flightMap.put("Poznan", true);
-
-        try {
 
             if(!(flightMap.containsKey(flight.getArrivalAirport()))) {
                 throw new RouteNotFoundException("text");
-            }
-
-        } catch (Exception ex) {
-            throw new RouteNotFoundException("Something is wrong.");
         }
+            List<String> foundedFlights = new ArrayList<>();
+
+                    flightMap.entrySet().stream()
+                    .filter(t -> t.getKey().toLowerCase().equals(flight.getArrivalAirport().toLowerCase()))
+                    .filter(t -> t.getValue().booleanValue() == true)
+                    .forEach(t -> foundedFlights.add(t.getKey()));
+
+                    if(foundedFlights.isEmpty()) {
+                        return false;
+                    } else
+                    {
+                        return true;
+                    }
    }
+
+    public boolean findDepartureAirport(Flight flight) throws RouteNotFoundException {
+
+        Map<String, Boolean> flightMap = new HashMap<String, Boolean>();
+        flightMap.put("Katowice", true);
+        flightMap.put("Paryz", false);
+        flightMap.put("Warszawa", true);
+
+        if(!(flightMap.containsKey(flight.getDepartureAirport()))) {
+            throw new RouteNotFoundException("There is no airport like this");
+        }
+        List<String> foundedFlights = new ArrayList<>();
+
+        flightMap.entrySet().stream()
+                .filter(t -> t.getKey().toLowerCase().equals(flight.getDepartureAirport().toLowerCase()))
+                .filter(t -> t.getValue().booleanValue() == true)
+                .forEach(t -> foundedFlights.add(t.getKey()));
+
+        if(foundedFlights.isEmpty()) {
+            return false;
+        } else
+        {
+            return true;
+        }
+    }
+
+
 }
