@@ -4,15 +4,7 @@ public class FirstChallenge {
 
     public double divide(double a, double b) throws ArithmeticException {
 
-        try{
-
-            return a / b;
-
-        } catch (Exception ex) {
-
-            throw new ArithmeticException();
-
-        }
+        return a / b;
     }
 
     public static void main(String[] args) {
