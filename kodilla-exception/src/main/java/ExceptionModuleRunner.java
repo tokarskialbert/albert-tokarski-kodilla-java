@@ -4,17 +4,15 @@ public class ExceptionModuleRunner {
 
     public static void main(String[] args) {
 
-        Flight flight = new Flight("Moskwa", "Krakow");
+        Flight flight = new Flight("Sarajewo", "Warszawa");
         FlightFinder flightFinder = new FlightFinder();
 
         try {
-           if(flightFinder.findArrivalAirport(flight) && flightFinder.findDepartureAirport(flight)) {
-               System.out.println("I find something");
-           } else {
-               System.out.println("Nothing... just nothing");
-           }
+
+            flightFinder.findFlight(flight);
 
         } catch (RouteNotFoundException ex) {
+
             System.out.println("Error! " + ex.getMessage());
         }
     }

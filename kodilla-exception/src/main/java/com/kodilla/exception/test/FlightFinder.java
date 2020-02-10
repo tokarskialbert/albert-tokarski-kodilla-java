@@ -1,62 +1,49 @@
 package com.kodilla.exception.test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class FlightFinder {
 
-   public boolean findArrivalAirport(Flight flight) throws RouteNotFoundException {
+    private Map<String, Boolean> flightMap;
+    private boolean departureAirportStatus = false;
+    private boolean arrivalAirportStatus = false;
 
-        Map<String, Boolean> flightMap = new HashMap<String, Boolean>();
-            flightMap.put("Krakow", true);
-            flightMap.put("Wroclaw", false);
-            flightMap.put("Poznan", true);
+    public FlightFinder() {
 
-            if(!(flightMap.containsKey(flight.getArrivalAirport()))) {
-                throw new RouteNotFoundException("text");
-        }
-            List<String> foundedFlights = new ArrayList<>();
-
-                    flightMap.entrySet().stream()
-                    .filter(t -> t.getKey().toLowerCase().equals(flight.getArrivalAirport().toLowerCase()))
-                    .filter(t -> t.getValue().booleanValue() == true)
-                    .forEach(t -> foundedFlights.add(t.getKey()));
-
-                    if(foundedFlights.isEmpty()) {
-                        return false;
-                    } else
-                    {
-                        return true;
-                    }
-   }
-
-    public boolean findDepartureAirport(Flight flight) throws RouteNotFoundException {
-
-        Map<String, Boolean> flightMap = new HashMap<String, Boolean>();
+        flightMap = new HashMap<String, Boolean>();
         flightMap.put("Katowice", true);
         flightMap.put("Paryz", false);
         flightMap.put("Warszawa", true);
+        flightMap.put("Krakow", true);
+        flightMap.put("Moskwa", false);
+        flightMap.put("Olsztyn", false);
 
-        if(!(flightMap.containsKey(flight.getDepartureAirport()))) {
+    }
+
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+
+        if(!(flightMap.containsKey(flight.getDepartureAirport())) || !(flightMap.containsKey(flight.getArrivalAirport()))) {
             throw new RouteNotFoundException("There is no airport like this");
         }
-        List<String> foundedFlights = new ArrayList<>();
 
         flightMap.entrySet().stream()
                 .filter(t -> t.getKey().toLowerCase().equals(flight.getDepartureAirport().toLowerCase()))
                 .filter(t -> t.getValue().booleanValue() == true)
-                .forEach(t -> foundedFlights.add(t.getKey()));
+                .findAny().ifPresent(t -> departureAirportStatus = true);
 
-        if(foundedFlights.isEmpty()) {
-            return false;
-        } else
-        {
+        flightMap.entrySet().stream()
+                .filter(t -> t.getKey().toLowerCase().equals(flight.getArrivalAirport().toLowerCase()))
+                .filter(t -> t.getValue().booleanValue() == true)
+                .findAny().ifPresent(t -> arrivalAirportStatus = true);
+
+        if(departureAirportStatus && arrivalAirportStatus) {
+            System.out.println("I find flight");
             return true;
+
+        } else {
+            System.out.println("I find nothing");
+            return false;
         }
     }
-
-
 }
