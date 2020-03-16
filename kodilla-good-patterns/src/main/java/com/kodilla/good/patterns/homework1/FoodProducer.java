@@ -4,7 +4,5 @@ import java.util.Map;
 
 public interface FoodProducer {
     String getProducerInfo();
-
     Map<Product, Integer> getAvailableProducts();
-
 }

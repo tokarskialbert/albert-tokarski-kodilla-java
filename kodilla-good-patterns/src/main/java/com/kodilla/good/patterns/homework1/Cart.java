@@ -6,8 +6,12 @@ import java.util.List;
 public class Cart {
     List<Order> orders = new ArrayList<>();
 
-    public void addProduct(Product product, int quantity){
-        orders.add(new Order(product, quantity));
+    public void addProduct(FoodProducer foodProducer, Product product, int quantity){
+        orders.add(new Order(foodProducer, product, quantity));
+    }
+
+    public void processCart() {
+        System.out.println("Realizacja zamowienia!");
     }
 
 }

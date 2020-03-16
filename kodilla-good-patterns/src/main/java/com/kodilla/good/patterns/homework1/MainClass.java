@@ -7,27 +7,27 @@ import java.util.Scanner;
 
 public class MainClass {
     public static void main(String args[]){
+
         ExtraFoodShop.products.put(new Product("Apple", 1.5), 10);
         ExtraFoodShop.products.put(new Product("Pear", 2.5), 15);
 
+        GlutenFreeShop.products.put(new Product("TV", 1000), 10);
+        GlutenFreeShop.products.put(new Product("Airplane", 500), 15);
+
         List<FoodProducer> producerList = availableProducers();
 
-        FoodProducer producer = producerList.get(0);
-
-        System.out.println(producer.getProducerInfo());
+        FoodProducer producer1 = producerList.get(0);
+        FoodProducer producer2 = producerList.get(1);
 
         Cart cart = new Cart();
 
-        Scanner scanner = new Scanner(System.in);
+        OrderCollector orderCollector = new OrderCollector();
+        System.out.println(producer1.getProducerInfo());
+        orderCollector.doOrder(producer1, cart);
+        System.out.println(producer2.getProducerInfo());
+        orderCollector.doOrder(producer2, cart);
 
-        for(Map.Entry<Product, Integer> product : producer.getAvailableProducts().entrySet()) {
-            System.out.println("Produkt: " + product.getKey().getProductName() + ", cena: " + product.getKey().getPrice() + ", na magazynie :" + product.getValue());
-            System.out.print("Ile sztuk zamawiasz? ");
-            cart.addProduct(product.getKey(), scanner.nextInt());
-        }
-
-        FoodProvider provider = (FoodProvider)producer;
-        provider.process(cart);
+        cart.processCart();
     }
 
     private static List<FoodProducer> availableProducers() {
