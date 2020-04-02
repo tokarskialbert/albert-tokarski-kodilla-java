@@ -6,6 +6,6 @@ public class BookPurchaseService implements PurchaseService {
 
     @Override
     public boolean buy(User buyer, Item item, LocalDateTime dateOfPurchase) {
-        return false;
+        return true;
     }
 }

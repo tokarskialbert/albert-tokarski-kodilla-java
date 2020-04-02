@@ -14,7 +14,7 @@ public class PurchaseDto {
         return buyer;
     }
 
-    public boolean isPurchaseStatus() {
+    public boolean getPurchaseStatus() {
         return purchaseStatus;
     }
 }
