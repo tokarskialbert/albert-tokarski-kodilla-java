@@ -1,8 +1,10 @@
 package com.kodilla.good.patterns.flights;
 
+import java.util.Set;
+
 public interface FlightFinder {
-    void findFlightFrom(String cityName, FlightsRepository flightsRepository);
-    void findFlightTo(String cityName, FlightsRepository flightsRepository);
-    void findDirectFlight(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository);
-   // void findFlightFromTo(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository);
+    Set findFlightFrom(String cityName);
+    Set findFlightTo(String cityName);
+    boolean findDirectFlight(String departureCityName, String arrivalCityName);
+    void findFlightFromTo(Set<Flight> departureCitySet, String departureCityName, String arrivalCityName);
 }
