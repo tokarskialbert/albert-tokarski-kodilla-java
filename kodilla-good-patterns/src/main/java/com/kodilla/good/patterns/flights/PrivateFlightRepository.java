@@ -1,13 +1,13 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PrivateFlightRepository implements FlightsRepository {
-    private List<Flight> privateFlightList = new ArrayList<>();
+    private Set<Flight> privateFlightSet = new HashSet<>();
 
     @Override
-    public List<Flight> getFlightList() {
-        return this.privateFlightList;
+    public Set<Flight> getFlightSet() {
+        return this.privateFlightSet;
     }
 }

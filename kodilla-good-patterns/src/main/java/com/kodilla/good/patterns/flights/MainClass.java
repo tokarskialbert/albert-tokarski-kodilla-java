@@ -4,14 +4,14 @@ public class MainClass {
     public static void main(String[] args) {
 
         FlightsRepository flightsRepository = new PrivateFlightRepository();
-        flightsRepository.getFlightList().add(new PrivateFlight("KRAKOW", "WARSZAWA"));
-        flightsRepository.getFlightList().add(new PrivateFlight("WARSZAWA", "KRAKOW"));
-        flightsRepository.getFlightList().add(new PrivateFlight("WARSZAWA", "WROCLAW"));
-        flightsRepository.getFlightList().add(new PrivateFlight("WROCLAW", "WARSZAWA"));
-        flightsRepository.getFlightList().add(new PrivateFlight("SZCZECIN", "RZESZOW"));
-        flightsRepository.getFlightList().add(new PrivateFlight("RZESZOW", "SZCZECIN"));
-        flightsRepository.getFlightList().add(new PrivateFlight("GDANSK", "KRAKOW"));
-        flightsRepository.getFlightList().add(new PrivateFlight("KRAKOW", "GDANSK"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("KRAKOW", "WARSZAWA"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("WARSZAWA", "KRAKOW"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("WARSZAWA", "WROCLAW"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("WROCLAW", "WARSZAWA"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("SZCZECIN", "RZESZOW"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("RZESZOW", "SZCZECIN"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("GDANSK", "KRAKOW"));
+        flightsRepository.getFlightSet().add(new PrivateFlight("KRAKOW", "GDANSK"));
 
         FlightFinder flightFinder = new PrivateFlightFinder();
         flightFinder.findFlightFrom("krakow", flightsRepository);

@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.List;
+import java.util.Set;
 
 public interface FlightsRepository {
-    List<Flight> getFlightList();
+    Set<Flight> getFlightSet();
 }

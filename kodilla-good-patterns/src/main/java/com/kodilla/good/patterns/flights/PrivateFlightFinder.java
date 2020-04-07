@@ -6,21 +6,21 @@ import java.util.stream.Collectors;
 public class PrivateFlightFinder implements FlightFinder {
     @Override
     public void findFlightFrom(String cityName, FlightsRepository flightsRepository) {
-        flightsRepository.getFlightList().stream()
+        flightsRepository.getFlightSet().stream()
                 .filter(flight -> flight.getDeparture().toLowerCase().equals(cityName.toLowerCase()))
                 .forEach(flight -> System.out.println("Matching flight: " + flight.toString()));
     }
 
     @Override
     public void findFlightTo(String cityName, FlightsRepository flightsRepository) {
-        flightsRepository.getFlightList().stream()
+        flightsRepository.getFlightSet().stream()
                 .filter(flight -> flight.getArrival().toLowerCase().equals(cityName.toLowerCase()))
                 .forEach(flight -> System.out.println("Matching flight: " + flight.toString()));
     }
 
     @Override
     public boolean findDirectFlight(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository) {
-        List<Flight> directFlightList = flightsRepository.getFlightList().stream()
+        List<Flight> directFlightList = flightsRepository.getFlightSet().stream()
                 .filter(flight -> flight.getDeparture().toLowerCase().equals(departureCityName.toLowerCase())
                         && flight.getArrival().toLowerCase().equals(arrivalCityName.toLowerCase()))
                 .collect(Collectors.toList());
@@ -39,13 +39,13 @@ public class PrivateFlightFinder implements FlightFinder {
     @Override
     public void findFlightFromTo(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository) {
         if(!(findDirectFlight(departureCityName, arrivalCityName, flightsRepository))) {
-            List<String> result = flightsRepository.getFlightList().stream()
+            List<String> result = flightsRepository.getFlightSet().stream()
                     .filter(flight -> flight.getDeparture().toLowerCase().equals(departureCityName.toLowerCase()))
                     .map(a -> a.getArrival())
                     .collect(Collectors.toList());
 
             for(String inCity : result) {
-                List<Flight> flightChangeList = flightsRepository.getFlightList().stream()
+                List<Flight> flightChangeList = flightsRepository.getFlightSet().stream()
                         .filter(flight -> flight.getDeparture().toLowerCase().equals(inCity.toLowerCase())
                             && flight.getArrival().toLowerCase().equals(arrivalCityName.toLowerCase()))
                         .collect(Collectors.toList());
