@@ -18,9 +18,10 @@ public class MainClass {
         System.out.println("***");
         flightFinder.findFlightTo("wroclaw", flightsRepository);
         System.out.println("***");
-        flightFinder.findFlightFromTo("krakow", "gdansk", flightsRepository);
-        System.out.println("***");
-        flightFinder.findFlightFromTo("warszawa", "gdansk", flightsRepository);
+        flightFinder.findDirectFlight("krakow", "warszawa", flightsRepository);
+       // flightFinder.findFlightFromTo("krakow", "gdansk", flightsRepository);
+      //  System.out.println("***");
+       // flightFinder.findFlightFromTo("warszawa", "gdansk", flightsRepository);
 
 
     }

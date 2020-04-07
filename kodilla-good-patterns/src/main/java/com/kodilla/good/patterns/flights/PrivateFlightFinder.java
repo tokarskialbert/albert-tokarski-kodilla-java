@@ -19,24 +19,15 @@ public class PrivateFlightFinder implements FlightFinder {
     }
 
     @Override
-    public boolean findDirectFlight(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository) {
-        List<Flight> directFlightList = flightsRepository.getFlightSet().stream()
-                .filter(flight -> flight.getDeparture().toLowerCase().equals(departureCityName.toLowerCase())
-                        && flight.getArrival().toLowerCase().equals(arrivalCityName.toLowerCase()))
-                .collect(Collectors.toList());
+    public void findDirectFlight(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository) {
 
-        if(directFlightList.size() > 0) {
-            for (Flight flight : directFlightList) {
-                System.out.println("Matching flight: " + flight.toString());
-            }
-            return true;
-        } else {
-            System.out.println("Sorry, no matching direct flight");
-            return false;
-        }
+        flightsRepository.getFlightSet().stream()
+            .filter(flight -> flight.getDeparture().toLowerCase().equals(departureCityName.toLowerCase())
+                && flight.getArrival().toLowerCase().equals(arrivalCityName.toLowerCase()))
+            .forEach(flight -> System.out.println("Matching flight: " + flight.toString()));
     }
 
-    @Override
+    /*@Override
     public void findFlightFromTo(String departureCityName, String arrivalCityName, FlightsRepository flightsRepository) {
         if(!(findDirectFlight(departureCityName, arrivalCityName, flightsRepository))) {
             List<String> result = flightsRepository.getFlightSet().stream()
@@ -58,4 +49,6 @@ public class PrivateFlightFinder implements FlightFinder {
             }
         }
     }
+
+     */
 }
