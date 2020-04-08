@@ -19,7 +19,7 @@ public class MainClass {
         Set departureCitySet = flightFinder.findFlightFrom("warszawa");
         flightFinder.findFlightTo("gdansk");
         flightFinder.findDirectFlight("krakow", "warszawa");
-        flightFinder.findFlightFromTo(departureCitySet,"warszawa", "gdansk");
+        flightFinder.findFlightFromTo("warszawa", "gdansk");
 
 
     }

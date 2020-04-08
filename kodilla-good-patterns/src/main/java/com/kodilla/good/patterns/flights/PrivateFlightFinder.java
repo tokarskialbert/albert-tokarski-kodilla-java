@@ -30,7 +30,7 @@ public class PrivateFlightFinder implements FlightFinder {
     }
 
     @Override
-    public Set findFlightFrom(String cityName) {
+    public Set<Flight> findFlightFrom(String cityName) {
 
         return this.flightsRepository.getFlightSet().stream()
                 .filter(flight -> flight.getDeparture().toLowerCase().equals(cityName.toLowerCase()))
@@ -38,11 +38,11 @@ public class PrivateFlightFinder implements FlightFinder {
     }
 
     @Override
-    public void findFlightFromTo(Set<Flight> departureCitySet, String departureCityName, String arrivalCityName) {
+    public void findFlightFromTo(String departureCityName, String arrivalCityName) {
 
         if(!(findDirectFlight(departureCityName, arrivalCityName))) {
 
-            List<String> result = departureCitySet.stream()
+            List<String> result = findFlightFrom(departureCityName).stream()
                     .map(a -> a.getArrival())
                     .collect(Collectors.toList());
 
